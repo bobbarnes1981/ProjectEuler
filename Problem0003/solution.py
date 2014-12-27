@@ -15,11 +15,13 @@ def solution(target):
 	print(result)
 
 def is_prime(number):
-	i = 2
-	while i < number:
-		if number % i == 0:
+	left = 2
+	right = number
+	while left < right:
+		right = number/left
+		if number % left == 0:
 			return False
-		i+=1
+		left+=1
 	return True
 	
 if __name__ == '__main__':
