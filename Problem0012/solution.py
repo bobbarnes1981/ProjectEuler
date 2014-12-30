@@ -6,8 +6,8 @@ def solution(target):
 	while len(devisors) < target:
 		number += i
 		devisors = get_devisors(number)
-		print('%s\t%s' % (number, len(devisors)))
 		i += 1
+	print(number)
 
 def get_devisors(number):
 	left = 1
@@ -16,8 +16,10 @@ def get_devisors(number):
 	while left < right:
 		if number % left == 0:
 			right = number/left
-			devisors.append(left)
-			devisors.append(right)
+			if left not in devisors:
+				devisors.append(left)
+			if right not in devisors:
+				devisors.append(right)
 		left+=1
 	devisors.sort()
 	return devisors
